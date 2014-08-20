@@ -16,6 +16,8 @@ from django.contrib.auth.hashers import (
 from django.contrib.auth.signals import user_logged_in
 from django.contrib.contenttypes.models import ContentType
 
+from audioapp.apps import multisite
+
 
 def update_last_login(sender, user, **kwargs):
     """
@@ -127,7 +129,7 @@ class Group(models.Model):
         return (self.name,)
 
 
-class UserManager(models.Manager):
+class UserManager(multisite.CurrentSiteManager, models.Manager):
 
     @classmethod
     def normalize_email(cls, email):
@@ -222,7 +224,8 @@ def _user_has_module_perms(user, app_label):
     return False
 
 
-class User(models.Model):
+class User(multisite.MultiSitesMixin, multisite.SiteFieldMixin,
+           models.Model):
     """
     Users within the Django authentication system are represented by this
     model.

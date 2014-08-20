@@ -1,8 +1,10 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from audioapp.apps import multisite
 
-class SessionManager(models.Manager):
+
+class SessionManager(multisite.CurrentSiteManager, models.Manager):
     def encode(self, session_dict):
         """
         Returns the given session dictionary pickled and encoded as a string.
@@ -18,7 +20,8 @@ class SessionManager(models.Manager):
         return s
 
 
-class Session(models.Model):
+class Session(multisite.MultiSitesMixin, multisite.SiteFieldMixin,
+              models.Model):
     """
     Django provides full support for anonymous sessions. The session
     framework lets you store and retrieve arbitrary data on a
