@@ -232,7 +232,7 @@ class User(multisite.MultiSitesMixin, multisite.SiteFieldMixin,
 
     Username and password are required. Other fields are optional.
     """
-    username = models.CharField(_('username'), max_length=30, unique=True,
+    username = models.CharField(_('username'), max_length=30,
         help_text=_('Required. 30 characters or fewer. Letters, numbers and '
                     '@/./+/-/_ characters'))
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
@@ -262,6 +262,7 @@ class User(multisite.MultiSitesMixin, multisite.SiteFieldMixin,
     class Meta:
         verbose_name = _('user')
         verbose_name_plural = _('users')
+        unique_together = ('username', 'site')
 
     def __unicode__(self):
         return self.username
