@@ -522,6 +522,9 @@ class QuerySet(object):
         Updates all elements in the current QuerySet, setting all the given
         fields to the appropriate values.
         """
+        from django.conf import settings
+        if 'site' in kwargs and kwargs['site'].id != settings.SITE_ID:
+            raise ValueError('site_id update not allowed')
         assert self.query.can_filter(), \
                 "Cannot update a query once a slice has been taken."
         self._for_write = True

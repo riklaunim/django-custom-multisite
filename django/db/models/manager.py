@@ -176,9 +176,11 @@ class Manager(object):
         return self.get_query_set().prefetch_related(*args, **kwargs)
 
     def values(self, *args, **kwargs):
+        list(self.get_query_set())
         return self.get_query_set().values(*args, **kwargs)
 
     def values_list(self, *args, **kwargs):
+        list(self.get_query_set())
         return self.get_query_set().values_list(*args, **kwargs)
 
     def update(self, *args, **kwargs):
