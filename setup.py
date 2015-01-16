@@ -70,7 +70,7 @@ version = __import__('django').get_version()
 
 setup(
     name = "Django",
-    version = '1.4.18-multisite-pozytywnie1',
+    version = '1.4.18-multisite-pozytywnie2',
     url = 'http://www.djangoproject.com/',
     author = 'Django Software Foundation',
     author_email = 'foundation@djangoproject.com',
