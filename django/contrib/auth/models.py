@@ -130,7 +130,6 @@ class Group(models.Model):
 
 
 class UserManager(multisite.CurrentSiteManager, models.Manager):
-
     @classmethod
     def normalize_email(cls, email):
         """

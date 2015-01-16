@@ -70,12 +70,12 @@ version = __import__('django').get_version()
 
 setup(
     name = "Django",
-    version = '1.4.8-multisite-pozytywnie4',
+    version = '1.4.18-multisite-pozytywnie1',
     url = 'http://www.djangoproject.com/',
     author = 'Django Software Foundation',
     author_email = 'foundation@djangoproject.com',
     description = 'A high-level Python Web framework that encourages rapid development and clean, pragmatic design.',
-    download_url = 'https://www.djangoproject.com/m/releases/1.4/Django-1.4.8.tar.gz',
+    download_url = 'https://www.djangoproject.com/m/releases/1.4/Django-1.4.18.tar.gz',
     packages = packages,
     cmdclass = cmdclasses,
     data_files = data_files,
